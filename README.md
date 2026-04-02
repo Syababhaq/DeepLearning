@@ -1,7 +1,8 @@
 # 🚩 FlagOS: High-Performance Triton Operator Development
 **[FlagGems Operator Development Competition — Track 1]**
+competition link: https://www.kaggle.com/competitions/track1-operator-development-and-optimization-flagos-challenge/overview
 
-This repository contains the development, optimization, and assessment of 20 high-performance LLM operators implemented in **Triton**. The goal is to reach parity with at least 20 PyTorch operators with specialized kernels that achieve ≥0.9x speedup and 100% functional correctness for the FlagGems library.
+This repository contains the development, optimization, and assessment of 20 high-performance LLM operators implemented in **Triton**. The goal is to reach parity with at least 4 PyTorch (2 easy, 1 medium, 1 difficult) with specialized kernels that achieve ≥0.9x speedup and 100% functional correctness for the FlagGems library.
 
 ---
 
@@ -14,13 +15,14 @@ This repository contains the development, optimization, and assessment of 20 hig
 ---
 
 ### 📊 Competition Progress Tracker
-We are targeting **20 Operators**. Each operator is validated for functional accuracy (vs. PyTorch) and performance speedup.
+We are targeting **4 Operators**. Each operator is validated for functional accuracy (vs. PyTorch) and performance speedup.
+Current progress:
 
 | # | Operator | Category | Difficulty | Status | Speedup (vs Torch) |
 |---|---|---|---|---|---|
 | 02 | `logaddexp` | Binary/Pointwise | Low | ✅ Done | 1.05x |
 | 03 | `cosh` | Unary/Pointwise | Low | ✅ Done | 1.02x |
-| 11 | `median` | Reduction/Sort | **Medium** | ✅ Done | ~0.3x |
+| 11 | `median` | Reduction/Sort | **Medium** | Currently working | ~0.3x |
 
 
 ---
@@ -38,7 +40,6 @@ We are targeting **20 Operators**. Each operator is validated for functional acc
 *   **Open-Source Adaptability (10%):** Apache 2.0 Licensing, PEP 8 styling, and FlagGems PR compatibility.
 
 ---
-**Maintained by:** Zamir-542  
 **License:** Apache 2.0
 
 ---
