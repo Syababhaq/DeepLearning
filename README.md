@@ -21,7 +21,7 @@ Current progress:
 |---|---|---|---|---|---|
 | 02 | `logaddexp` | Binary/Pointwise | Low | ✅ Done | 1.05x |
 | 03 | `cosh` | Unary/Pointwise | Low | ✅ Done | 1.02x |
-| 11 | `median` | Reduction/Sort | **Medium** | ✅ Done | ~0.3x |
+| 11 | `median` | Reduction/Sort | **Medium** | Currently working | ~0.3x |
 
 
 ---
