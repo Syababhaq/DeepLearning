@@ -30,5 +30,5 @@
 - **Insights**: 
   1. **Unstable Selection:** We discovered that PyTorch's internal CUDA `median` uses an unstable selection algorithm. When duplicate values exist, PyTorch does not guarantee returning the first index natively.
   2. **Floating-point vs Bit-level:** In float math, `-0.0 == 0.0`. But at the bit level (uint32), they are `0x7FFFFFFF` and `0x80000000`. Our bitwise Radix Select was aggressively sorting `-0.0` before `0.0`. 
-  3. **NaN Values:** PyTorch treats all NaNs as equal, but they can have many different bit-level payloads.
-- **Solution / Adjustments**: We patched the kernel by forcing all `-0.0` elements to `0.0` and converting all `NaN` payloads to a single canonical positive `NaN` bit pattern *before* casting to unsigned integers (`u32`). We also updated our test scripts to handle PyTorch's unstable duplicate indices properly, completing the production-ready `median` operator!
+
+- **Solution / Adjustments**: We patched the kernel by forcing all `-0.0` elements to `0.0`. We also updated our test scripts to handle PyTorch's unstable duplicate indices properly, completing the production-ready `median` operator!
