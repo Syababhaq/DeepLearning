@@ -39,10 +39,6 @@ Develop and optimize the Singular Value Decomposition (SVD) operator (`torch.lin
 | (16, 16) | 256 | 23.43 |717.18 | **30.61x** |
 | (32, 32) | 1024 | 161.38 | 637.23 | **3.95x** |
 | (64, 64) | 4096 | 9555.48 | 1482.86 | 0.16x |
-  
-  (16, 16)        | 256          |            | 717.18          | 30.61     
-(32, 32)        | 1024         | 126.18          | 485.45          | 3.85      
-(64, 64)        | 4096         | 9555.48         | 1482.86         | 0.16  
 
 ### Benchmark Analysis & The LLM Context
 We successfully engineered a custom kernel that decisively outperforms PyTorch's native backend for sub-block SVD operations. 
