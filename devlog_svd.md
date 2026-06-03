@@ -37,7 +37,7 @@ Develop and optimize the Singular Value Decomposition (SVD) operator (`torch.lin
 | Shape | Dimension | Triton ($\mu$s) | PyTorch ($\mu$s) | Speedup |
 | :--- | :--- | :--- | :--- | :--- |
 | (16, 16) | 256 | 23.43 |717.18 | **30.61x** |
-| (32, 32) | 1024 | 161.38 | 637.23 | **3.95x** |
+| (32, 32) | 1024 | 126.18 | 485.45 | **3.85x** |
 | (64, 64) | 4096 | 9555.48 | 1482.86 | 0.16x |
 
 ### Benchmark Analysis & The LLM Context
