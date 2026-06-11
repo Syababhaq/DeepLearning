@@ -1,8 +1,10 @@
 # 🚀 Dev Log: FlagOS Challenge (Track 1) - LLM Operator Development
 
 **Project:** Custom High-Performance SVD Operator in Triton for FlagGems
-**Team:** Ikhwan, Syabab, Zamir, Luqman, Miyui, and Kojek
-**Hardware Target:** NVIDIA T4 (Google Colab / Acer Nitro local dev)
+
+**Team:** Ikhwan, Syabab, Zamir
+
+**Hardware Target:** NVIDIA T4 (Google Colab)
 
 ---
 
@@ -34,7 +36,7 @@ Develop and optimize the Singular Value Decomposition (SVD) operator (`torch.lin
 
 *Benchmarked on NVIDIA T4 via `triton.testing.do_bench` (100 reps, 25 warmup)*
 
-| Shape | Dimension | Triton ($\mu$s) | PyTorch ($\mu$s) | Speedup |
+| Shape | Dimension | Triton (μs) | PyTorch (μs) | Speedup |
 | :--- | :--- | :--- | :--- | :--- |
 | (16, 16) | 256 | 23.43 |717.18 | **30.61x** |
 | (32, 32) | 1024 | 126.18 | 485.45 | **3.85x** |
@@ -47,9 +49,4 @@ We successfully engineered a custom kernel that decisively outperforms PyTorch's
 
 **Strategic Value:** In modern LLM architectures (e.g., Llama 3), matrix operations are heavily parallelized into "Attention Heads," which frequently utilize inner dimensions of 64 or 128. Our kernel acts as an ultra-fast **Inner Engine**. By pairing our Triton kernel with a high-level block-tiling orchestrator, researchers can execute low-rank decompositions on attention head tiles at unprecedented speeds.
 
----
 
-## 🛣️ Next Steps
-1. **Code Cleanup:** Refactor the codebase to strictly adhere to FlagGems PEP 8 and Google C++ style formatting.
-2. **Dynamic Tolerance:** Fine-tune the early stopping threshold (`error < 1e-5`) to optimize execution time without sacrificing mathematical precision.
-3. **Pull Request:** Package the $32 \times 32$ optimized kernel for upstream review in the FlagGems repository.
