@@ -20,12 +20,12 @@ Current progress:
 
 | # | Operator | Category | Difficulty | Status | Speedup (vs Torch) |
 |---|---|---|---|---|---|
-| 02 | `logaddexp` | Binary/Pointwise | Low | ✅ Done | 1.05x |
-| 03 | `cosh` | Unary/Pointwise | Low | ✅ Done | 1.02x |
-| 11 | `median` | Reduction/Sort | Medium | ✅ Done | ~0.3x |
-| 18 | `svd` | Unary/Linalg | Difficult | ✅ Done | 30.61x |
-| 19 | `ctc_loss` | Unary/Loss | Difficult | ✅ Done | x |
-| 20 | `grid_sample` | Unary/Special | Difficult | ✅ Done | x |
+| 02 | `logaddexp` | Pointwise | Low | ✅ Done | 1.05x |
+| 03 | `cosh` | Pointwise | Low | ✅ Done | 1.02x |
+| 11 | `median` | Reduction | Medium | ✅ Done | 1.32x |
+| 18 | `svd` | Linalg | Difficult | ✅ Done | 30.61x |
+| 19 | `ctc_loss` | Loss | Difficult | ✅ Done | 1.292x |
+| 20 | `grid_sample` | Special | Difficult | ✅ Done | 4.63x |
 
 
 ---
