@@ -15,7 +15,7 @@ This repository contains the development, optimization, and assessment of 20 hig
 ---
 
 ### 📊 Competition Progress Tracker
-We are targeting **4 Operators**. Each operator is validated for functional accuracy (vs. PyTorch) and performance speedup.
+We are targeting **6 Operators**. Each operator is validated for functional accuracy (vs. PyTorch) and performance speedup.
 Current progress:
 
 | # | Operator | Category | Difficulty | Status | Speedup (vs Torch) |
@@ -48,7 +48,8 @@ DeepLearning/
 │   └── flagos_median3.ipynb
 │
 └── Assessment_3/
-    ├── report_assessment3.pdf
+    ├── FinalReport_Fighter3.6.pdf
+    ├── Grid Sample Operator.pdf
     ├── ctc_loss(src code).py
     ├── ctc_loss.md
     ├── ctc_loss_benchmark(test).ipynb
@@ -60,13 +61,7 @@ DeepLearning/
 
 ---
 
-### 🛠️ Key Technical Implementations
-*   **`median.dim` (Medium):** Implemented using a high-efficiency **Radix Sort + Vectorized Gather** pipeline. This matches PyTorch's complexity and handles original index tracking.
-*   **Numerical Stability:** Pointwise operators (like `cosh` and `logaddexp`) use explicit `float32` promotion to prevent overflows in `float16`/`bfloat16` precision.
-*   **Hardware Utilization:** Our kernels are optimized for **HBM Bandwidth Utilization**, targetting >80% peak performance on memory-bound workloads.
-*   
 
----
 
 ### ⚖️ Evaluation Criteria
 *   **Functional Correctness (30%):** Zero-error index matching and float32 tolerance validation.
