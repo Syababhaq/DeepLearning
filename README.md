@@ -22,7 +22,10 @@ Current progress:
 |---|---|---|---|---|---|
 | 02 | `logaddexp` | Binary/Pointwise | Low | ✅ Done | 1.05x |
 | 03 | `cosh` | Unary/Pointwise | Low | ✅ Done | 1.02x |
-| 11 | `median` | Reduction/Sort | **Medium** | Currently working | ~0.3x .|
+| 11 | `median` | Reduction/Sort | Medium | ✅ Done | ~0.3x |
+| 18 | `svd` | Unary/Linalg | Difficult | ✅ Done | 30.61x |
+| 19 | `ctc_loss` | Unary/Loss | Difficult | ✅ Done | x |
+| 20 | `grid_sample` | Unary/Special | Difficult | ✅ Done | x |
 
 
 ---
