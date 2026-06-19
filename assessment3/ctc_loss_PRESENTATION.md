@@ -120,6 +120,14 @@ large     300   32    128   1.292×
 
 > Note: We achieved up to 2.01× speedup before we discovered a cross-warp race condition and an autograd graph disconnect. The final numbers (0.697x / 1.221x / 1.292x) are the fully correct, race-free, and backward-compatible versions.
 
+> **On the benchmark notebook's `≥ 0.9×` assertion:** that pass/fail gate was written
+> against the *pre-correctness peak*, where every shape cleared 0.9×. On this final build the
+> small shape is **0.697×** *by design* — the `torch.autograd.Function` boundary plus the
+> cross-warp `tl.debug_barrier()` we added for correctness cost more than the ~0.27 ms
+> small-shape budget can hide. So a strict `≥ 0.9×` check is **expected to fail on the small
+> shape** here, while medium/large (1.221× / 1.292×) still pass. The trade was deliberate:
+> correctness over a sub-1× small shape.
+
 ### Why the curve looks like this
 
 - **Small shapes hover below 1× (0.697×):** FlagGems routes ATen calls through Python by design;
@@ -153,8 +161,9 @@ large     300   32    128   1.292×
   (an op override must snapshot the native kernel *at import time* or it recurses)
 
 ```
-src/flag_gems/ops/ctc_loss.py    forward kernel + fused reduction + backward capture (~320 lines)
-tests/test_ctc_loss.py           correctness: 3 shapes × 3 reductions, backward, zero_infinity
+src/flag_gems/ops/ctc_loss.py    forward kernel + fused reduction + backward capture (~400 lines)
+tests/test_ctc_loss.py           correctness: 5 shapes × 3 reductions + backward, zero_infinity,
+                                 zero-target-length, repeated-label, 1D-target, composite-backward
 benchmark/test_ctc_loss.py       FlagGems benchmark integration
 CHANGELOG.md                     full optimization history
 plans/                           archived round plans
