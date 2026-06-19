@@ -27,6 +27,36 @@ Current progress:
 | 19 | `ctc_loss` | Loss | Difficult | ✅ Done | 1.292x |
 | 20 | `grid_sample` | Special | Difficult | ✅ Done | 4.63x |
 
+---
+
+### 📂 Project Structure
+
+```text
+DeepLearning/
+│
+├── README.md
+│
+├── Assessment_1/
+│   ├── assessment1.md
+│   ├── flagos-cosh.ipynb
+│   ├── flagos-logaddexp.ipynb
+│   └── flagos-median2.ipynb
+│
+├── Assessment_2/
+│   ├── assessment2.md
+│   ├── REPORT_Assesment2_Fighter3.6.pdf
+│   └── flagos_median3.ipynb
+│
+└── Assessment_3/
+    ├── report_assessment3.pdf
+    ├── ctc_loss(src code).py
+    ├── ctc_loss.md
+    ├── ctc_loss_benchmark(test).ipynb
+    ├── devlog_svd.md
+    ├── flagOS_svd.ipynb
+    └── grid_sample.ipynb
+
+```
 
 ---
 
@@ -34,6 +64,7 @@ Current progress:
 *   **`median.dim` (Medium):** Implemented using a high-efficiency **Radix Sort + Vectorized Gather** pipeline. This matches PyTorch's complexity and handles original index tracking.
 *   **Numerical Stability:** Pointwise operators (like `cosh` and `logaddexp`) use explicit `float32` promotion to prevent overflows in `float16`/`bfloat16` precision.
 *   **Hardware Utilization:** Our kernels are optimized for **HBM Bandwidth Utilization**, targetting >80% peak performance on memory-bound workloads.
+*   
 
 ---
 
